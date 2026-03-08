@@ -51,6 +51,11 @@ Those future modules must share the same application shell, database, and sync f
 - Extensible schema: new modules add tables and syncable records to the same foundation.
 - Reversible choices: platform adapters and sync adapters stay behind interfaces so the project can change auth or cloud transport later.
 
+## UI Reference
+
+The current product UI reference lives in [`finance-ui-reference.md`](finance-ui-reference.md).
+That document links the Figma design file and summarizes the agreed screen set, component library, responsive behavior, dark mode palette, and Flutter implementation direction for the finance module.
+
 ## Success Criteria
 
 - The same user dataset can be created on Android and later used on Linux after manual sync.

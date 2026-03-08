@@ -6,14 +6,15 @@ The goal is to lock the v1 technology stack for an Android + Linux local-first a
 ## Reading Order
 
 1. [`product/v1-scope.md`](product/v1-scope.md)
-2. [`research/cross-platform-stack-evaluation.md`](research/cross-platform-stack-evaluation.md)
-3. [`decisions/adr-001-client-stack.md`](decisions/adr-001-client-stack.md)
-4. [`decisions/adr-002-local-storage.md`](decisions/adr-002-local-storage.md)
-5. [`decisions/adr-003-google-drive-sync.md`](decisions/adr-003-google-drive-sync.md)
-6. [`architecture/overview.md`](architecture/overview.md)
-7. [`architecture/module-boundaries.md`](architecture/module-boundaries.md)
-8. [`setup/dev-environment.md`](setup/dev-environment.md)
-9. [`setup/google-drive-oauth.md`](setup/google-drive-oauth.md)
+2. [`product/finance-ui-reference.md`](product/finance-ui-reference.md)
+3. [`research/cross-platform-stack-evaluation.md`](research/cross-platform-stack-evaluation.md)
+4. [`decisions/adr-001-client-stack.md`](decisions/adr-001-client-stack.md)
+5. [`decisions/adr-002-local-storage.md`](decisions/adr-002-local-storage.md)
+6. [`decisions/adr-003-google-drive-sync.md`](decisions/adr-003-google-drive-sync.md)
+7. [`architecture/overview.md`](architecture/overview.md)
+8. [`architecture/module-boundaries.md`](architecture/module-boundaries.md)
+9. [`setup/dev-environment.md`](setup/dev-environment.md)
+10. [`setup/google-drive-oauth.md`](setup/google-drive-oauth.md)
 
 ## ADR Status
 
@@ -25,7 +26,7 @@ The goal is to lock the v1 technology stack for an Android + Linux local-first a
 
 ## Folder Layout
 
-- `docs/product/`: product intent, scope, and near-term roadmap boundaries
+- `docs/product/`: product intent, scope, design references, and near-term roadmap boundaries
 - `docs/research/`: comparison notes, tradeoff analysis, rejected options
 - `docs/decisions/`: ADRs that lock architecture choices
 - `docs/architecture/`: implementation-facing structure and interface boundaries
