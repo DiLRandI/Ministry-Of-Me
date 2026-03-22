@@ -56,12 +56,19 @@ Those future modules must share the same application shell, database, and sync f
 The current product UI reference lives in [`finance-ui-reference.md`](finance-ui-reference.md).
 That document links the Figma design file and summarizes the agreed screen set, component library, responsive behavior, dark mode palette, and Flutter implementation direction for the finance module.
 
+## Future Compatibility Note
+
+V1 does **not** include a browser-accessible deployment or a custom backend.
+However, implementation choices made during v1 should preserve a clean path to a future self-hosted web mode.
+That future direction is described in [`future-web-self-hosted-mode.md`](future-web-self-hosted-mode.md) and the related architecture/ADR documents.
+
 ## Success Criteria
 
 - The same user dataset can be created on Android and later used on Linux after manual sync.
 - A broken or unavailable network connection does not prevent normal local app use.
 - The project can add a new domain module without replacing the database or sync approach.
 - Development can continue from Linux hardware alone.
+- The first implementation does not unnecessarily couple finance logic to native-only storage or platform APIs.
 
 ## Roadmap Themes After V1
 
@@ -70,3 +77,4 @@ That document links the Figma design file and summarizes the agreed screen set, 
 - reminders and recurring events
 - subscription renewals and alerts
 - asset inventory and valuation snapshots
+- self-hosted browser-accessible deployment mode

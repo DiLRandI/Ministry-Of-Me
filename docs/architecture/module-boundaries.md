@@ -8,6 +8,7 @@ Keep the first implementation simple while still isolating the parts most likely
 - sync transport
 - database adapter
 - future feature modules
+- future deployment mode
 
 ## App-Level Boundaries
 
@@ -33,6 +34,7 @@ Keep the first implementation simple while still isolating the parts most likely
 - accounts, categories, transactions, summaries
 - finance-specific application services
 - finance screens and view models
+- domain rules that should remain valid across deployment modes
 
 ### `features/sync/`
 
@@ -46,13 +48,14 @@ Keep the first implementation simple while still isolating the parts most likely
 - Google account connection
 - sync preferences
 - diagnostics
+- deployment-mode diagnostics later if needed
 
 ### `data/local/`
 
 - Drift database
 - table definitions
 - migrations
-- repository implementations
+- repository implementations for native local-first mode
 - snapshot export/import implementation
 
 ### `platform/google_auth/`
@@ -66,6 +69,14 @@ Keep the first implementation simple while still isolating the parts most likely
 - Drive API integration
 - manifest serialization
 - snapshot upload/download transport
+
+### `data/remote/`
+
+Reserved for a future self-hosted mode if introduced later:
+
+- remote repository implementations
+- HTTP transport adapters
+- server-backed data access contracts
 
 ## Required Internal Interfaces
 
@@ -95,13 +106,23 @@ replaceFromSnapshot(...)
 markSyncCompleted(...)
 ```
 
+### `FeatureRepository`
+
+Feature-facing repository contracts should hide whether data comes from:
+
+- native local SQLite storage
+- future remote service calls
+- a mixed synchronization workflow
+
+Feature code should depend on these contracts, not on concrete Drift table access.
+
 ### `AuthProvider`
 
 Responsibilities:
 
 - sign in
 - restore an existing session
-- return an authorized HTTP client for Google APIs
+- return an authorized HTTP client for Google APIs or future remote calls where appropriate
 - sign out
 
 Suggested methods:
@@ -150,3 +171,11 @@ compressedSizeBytes
 - New modules add tables to the shared database unless there is a strong reason not to.
 - New modules must become sync-aware by extending `LocalStore` and `SyncManifest` conventions instead of inventing new cloud storage.
 - Platform-specific code must stay behind `platform/` or adapter implementations, never inside feature screens or repositories.
+- Application services and repository contracts should be written so a future self-hosted mode can add alternate data implementations without rewriting feature logic.
+
+## Cross-Reference
+
+For broader deployment-mode guidance, also see:
+
+- [`future-deployment-modes.md`](future-deployment-modes.md)
+- [`../decisions/adr-004-future-web-readiness.md`](../decisions/adr-004-future-web-readiness.md)
