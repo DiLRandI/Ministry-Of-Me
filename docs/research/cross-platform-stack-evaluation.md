@@ -83,6 +83,19 @@ This is the lowest-friction stack that still leaves clean escape hatches for fut
 - The stack choice is optimized for fast delivery, not maximum native feel.
 - Google Drive sync is feasible without a backend, but Linux and Android cannot share the exact same Google auth package path.
 - The right architecture response is not changing stacks; it is isolating auth behind an interface.
+- A future self-hosted web mode does not automatically require changing the native-first stack choice; it requires preserving clear domain, repository, and deployment seams.
+
+## Forward-Looking Note
+
+This document selects the best v1 stack for native local-first delivery.
+It does **not** claim that Flutter + Drift + SQLite is automatically the full answer for a future browser-accessible self-hosted mode.
+The future-web requirement should be handled by architecture boundaries and later deployment decisions, not by prematurely changing the v1 stack decision.
+
+See also:
+
+- [`../product/future-web-self-hosted-mode.md`](../product/future-web-self-hosted-mode.md)
+- [`../decisions/adr-004-future-web-readiness.md`](../decisions/adr-004-future-web-readiness.md)
+- [`../architecture/future-deployment-modes.md`](../architecture/future-deployment-modes.md)
 
 ## Sources
 
